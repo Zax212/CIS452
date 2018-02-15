@@ -1,0 +1,25 @@
+Zach Hopman
+Kevin Anderson
+Lab 4
+
+1. describe your results (which may not be what you expected).
+	The program runs and prints nothing to the screen.
+
+2. again, describe your results and explain your observations.
+	The Thread prints hello world to the screen. The reason for this is because without the sleep timer the thread terminates before it has a chance to run.
+
+3. report your results.  Is the output of the program what you would have expected?  Describe what causes the observed formatting.
+	The program prints out either 10 "Hello" or 10 "World" at a time. This is because once a thread is started it goes through the entire for loop without waiting for another thread call.
+
+4. report your results again.  Explain why they are different from the results seen in question 3.
+	Now that there is a sleep call, the cpu is free to run the other thread. The threads alternate printing either "Hello" or "World". 
+
+5. based on your observations: does pthreads under Linux use the 1-to-1 or the many-to-many thread mapping model?  Justify your answer.
+	Pthreads in Linux uses the 1-to-1 mapping model. This is because each thread maps to a kernel scheduling entity. 1 process(PID) has 3 threads (SPID) because each process maps to each thread.
+
+6. compile the sample program and run it multiple times (you may see some variation between runs).  Choose one particular sample run.  Describe, trace, and explain the output of the program.
+	The program creates two threads who run the greeting3 function. The parent the prints that it sees 5 which is the initial sharedData value. Both threads then print out that they also see 5, as nothing has changed it. The parent increments it then the threads, after sleeping for a second, both increment and print what the value is now which is 7 and 8. The threads exit and the parent prints that the final value is 8.
+
+7. explain in your own words how the thread-specific (not shared) data is communicated to the child threads.
+	The global variables are stored in the data section of the process and this is shared by all threads.
+

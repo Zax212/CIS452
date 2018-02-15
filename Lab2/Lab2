@@ -1,0 +1,23 @@
+﻿Zach Hopman, Kevin Anderson
+
+1. how many lines are printed by the program.
+1. 3 lines are printed. 
+2. describe what is happening to produce the answer observed for the above question 
+1. Before fork is printed, then the program is forked into a parent and a child both print after fork before the program finally exits.
+3. consult the man pages for the ps utility; they will help you determine how to display and interpret the required information (often referred to as "verbose mode" or "long format"). Then with appropriate options, observe and report the PIDs and the status (i.e. state info) of your processes. Provide a brief explanation of your observations.
+1. PID 23982 (parent) and PID 23983 (child). Both have a status of 'S' which stands for sleep because both processes are running the sleep() function. 
+4.  create a diagram illustrating how Sample Program 2 executes (i.e. give a process hierarchy diagram, similar to the in-class exercise)
+1. diagram on back.
+5. In the context of our classroom discussions on process state, process operations, process scheduling, etc., describe what you observed and try explain what is happening to produce the observed results.  This is primarily an experiment; look for apparent anomalies and try to explain them based on classroom discussion of process operations.
+1. The program runs one parent and 3 child processes. Each process then runs through a loop (limit) times and prints out counting up. After the process finishes, it returns and exits. The anomaly that exists is the program orders everything differently each time causing different output. This is explained by the fact that we are not calling any type of interrupts which means everything is left up to the Operating System to schedule processor time.
+6. what line of code did you insert for the wait() system call?
+1. Child = wait(&status); 
+7. who prints first, the child or the parent?  Why?
+1. Child prints first. The parent waits for the child to exit before printing the status. The child prints when it is first created. 
+8. what two values are printed out by the parent in Sample Program 3?  (No, not the actual numbers, but what they mean.)  In other words, describe the interaction between the exit() function and the wait() system call.  You may want to experiment by changing some of these values to better understand the interaction.
+1. The first value printed by the parent is the ID of the child process that exited. The second value printed is the status of that exit. This value return value is an indicator for the child process to let the parent process know if it exited properly or it ran into an error.
+9. when is the second print line ("After the exec") printed?  Explain your answer. 
+1. The second line “After the exec” is never printed. This is because the binary image of the process is replaced by the new executable that exec() is running.
+10. explain how the second argument passed to execvp() is used? 
+1. The second argument is passed into the new command that exec is running to change behavior of that program.
+

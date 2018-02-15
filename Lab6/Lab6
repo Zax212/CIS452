@@ -1,0 +1,24 @@
+Zach Hopman
+Kevin Anderson
+Lab 6
+
+1.what exactly does Sample Program 1 intend to do (i.e. who is responsible for what operations)?
+	The program intends to swap the contents of two memory locations back and forth the entered number of times.
+
+2.given that, what is the program's expected output?
+	The output of the program should ideally always return values 0 and 1.
+
+3.describe the output of the Sample Program as the loop values increase
+	The higher the loop count, the greater the chance for the returned value to not be 0 and 1.	
+
+4.describe precisely what is happening to produce the observed interesting output.  Your answer should tie in to the concepts discussed in Chapter 5 -- Process Synchronization.
+	The more loops that are run, the greater the chance for an interupt to occur. When an interupt occurs, the likelyhood for the values to not be switched properly is higher. This explains why when you enter a high loop counter, the output is unusual.
+
+5.name and describe in your own words the use of the three fields of the sembuf structure
+	sem_num - The counter for the semaphore
+	sem_op - decides what operation to do(add,wait-for-zero, and nowait)
+	sem_flg - can either be sem_undo or ipc_nowait. this acts as a global 		setting so you dont need to use sem_op.
+
+6.what is the purpose of the SEM_UNDO flag (i.e. why would you use it)?
+    Note: you should probably not use this flag unless you truly understand what it does.
+	The SEM_UNDO flag will release the semaphore whenever the process is over.

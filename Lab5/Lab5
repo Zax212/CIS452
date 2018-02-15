@@ -1,0 +1,21 @@
+Zach Hopman
+Kevin Anderson
+Lab 5
+
+
+1.what exactly is being output by Sample Program 1 (what is the meaning of the output values)?
+	The output by program 1 is the pointer to the beginning of the shared memory section and a pointer to the end of the shared memory segment.
+
+2.read the man pages; then describe the meaning / purpose of each argument used by the shmget() function call.
+	key - The key for which to retrieve memory from or if the key is IPC_PRIVATE, allocate new memory and generate a new key to pair with it.
+	size - the size of the shared memory to allocate or retrieve.
+	shmflag - specifies how to handle either retrieving or allocating memory based on the flags passed here.
+
+3.describe two specific uses of the shmctl() function call
+	shmctl can be used to find the last time someone changed the shared memory. It can also be used to change permissions on the shared memory.
+
+4.read the man pages, then use shmctl() to modify Sample Program 1 so that it prints out the size of the shared memory segment
+	attached sheet
+
+5.submit your script
+	attached sheet

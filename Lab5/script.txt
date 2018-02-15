@@ -1,0 +1,31 @@
+﻿Zach Hopman
+Kevin Anderson
+
+
+Script started on Thu 08 Feb 2018 11:04:45 AM EST
+#[?1034h[#[32m~/CIS_452/Lab5]#[0m
+#[1;36mhopmanz#[1;33m-> #[0mipcrm --id 892108833 -m#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[Cs#[K####./a.out
+value a: 139725825290240	 value b: 139725825294336
+ShmId: 892141610 
+^C
+[#[32m~/CIS_452/Lab5]#[0m
+#[1;36mhopmanz#[1;33m-> #[0m./a.out########[Kipcs --id 892141610 -m
+
+Shared memory Segment shmid=892141610
+uid=7716	gid=500	cuid=7716	cgid=500
+mode=0600	access_perms=0600
+bytes=4096	lpid=27274	cpid=27274	nattch=0
+att_time=Thu Feb  8 11:04:52 2018  
+det_time=Thu Feb  8 11:04:55 2018  
+change_time=Thu Feb  8 11:04:52 2018  
+
+[#[32m~/CIS_452/Lab5]#[0m
+#[1;36mhopmanz#[1;33m-> #[0mipcrm shm 892141610
+resource(s) deleted
+[#[32m~/CIS_452/Lab5]#[0m
+#[1;36mhopmanz#[1;33m-> #[0mipcrm shm 892141610#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[C#[Cs --id 892141610 -m
+ipcs: id 892141610 not found
+[#[32m~/CIS_452/Lab5]#[0m
+#[1;36mhopmanz#[1;33m-> #[0mexit
+
+Script done on Thu 08 Feb 2018 11:05:33 AM EST
