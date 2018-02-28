@@ -1,0 +1,53 @@
+﻿Zach Hopman
+Kevin Anderson
+Lab 7
+System Object
+Method
+Value
+Details
+Maximum # of semaphores per process
+Static
+256
+Found in posix1_lim.h
+Maximum value of a (counting) semaphore
+Static
+
+32767
+Found in posix1_lim.h
+Maximum value of a (counting) semaphore
+empirical
+65535
+Max int value, range from -32767 to 32767.
+Maximum size of a shared memory segment (bytes) 
+empirical
+
+
+Page size (bytes)
+dynamic 
+4096
+Using sysconf(_SC_PAGESIZE) on EOS 14
+Physical pages in system 
+dynamic 
+4079220
+Getconf -a | grep PAGES on EOS 14
+Maximum # of processes per user
+dynamic 
+4096
+Ulimit -u on EOS 13
+Maximum file-size (bytes) 
+dynamic 
+18,446,744,073,709,551,615 (16 exabyte)
+Using getrlimit(RLIMIT_FSIZE,...)
+Maximum # of open files: hard limit
+dynamic 
+4096
+ulimit -Hn on EOS 13
+Maximum # of open files: soft limit 
+dynamic 
+1024
+ulimit – Sn on EOS 13
+Clock resolution (msec)
+dynamic 
+.001
+Used clock_getres() on EOS 13
+

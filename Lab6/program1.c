@@ -17,7 +17,7 @@
 
 int main (int argc, char *argv[]) {
     int status;
-    long int i, loop, temp, *shmPtr;
+    long int i, loop, *shmPtr;
     int shmId;
     pid_t pid;
 	int semId;

@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage{palatino}
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{minted}
+
+% Shell command markup
+\newcommand{\shellcmd}[1]{\texttt{\footnotesize #1}}
+
+% Rename this file to cis452-lectureNN.tex (use 2-digit consecutive
+% numbers)
+% To produce a PDF output, type the following on EOS
+%
+%  pdflatex -shell-escape cis452-lecture??.tex
+%
+
+\title{CIS452 Lecture-01 Notes}
+\author{Winter 2018}
+\date{}
+\begin{document}
+\maketitle
+
+\noindent
+
+% Be sure to replace your name below
+\textbf{Scribe:} \textit{Your name here}
+
+\section*{Announcements}
+
+% Use itemize for bullet list
+\begin{itemize}
+  \item First annoucement
+  \item Second annoucement
+\end{itemize}
+
+\section*{Topic Title}
+
+% Use enumerate for numbered list
+
+\begin{enumerate}
+\item Write something here. Use the \verb|minted| package to include code 
+snippets:
+
+\begin{minted}[linenos]{c}
+/* one.c */
+#include <stdio.h>
+
+int main() {
+    printf ("Hello world!\n");
+    return 0;
+}
+\end{minted}
+
+\begin{minted}[linenos]{java}
+public class Hello { 
+  public static void main(String[] args) {
+  }
+}
+\end{minted}
+
+\item Write something here
+\end{enumerate}
+
+\end{document}
