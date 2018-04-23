@@ -1,0 +1,33 @@
+Zach Hopman
+Kevin Anderson
+Lab 12
+
+1.  Answer the questions and perform the following operations:
+
+   a. what is the difference between stat(1) and stat(3)?
+	Stat(1) is a more simple command that will only return the status of a file system based on the option parameter. Stat(3) works as a small program being able to write the struct stat output to a buffer.
+
+   b. what exactly does Sample Program 1 do?
+	The program outputs the file type along with the permissions.
+
+   c. start a script file and verify that your program works. Submit the script file.
+	on seperate page.
+
+2.  Complete the following operations:
+
+    a. what exactly does Sample Program 2 do?
+	This program acts as the linux command ls by printing all files and directories in the current directory. It even includes hidden files and shortcuts.
+
+    b. start a script file and verify that your program works.  Submit the script file.
+	On seperate page.
+
+3.  Answer the following questions:
+
+    a. based on the order of information provided, which of the two tree traversal algorithms does du use?
+	The root directory is checked last so that means that the postorder tree traversal algorithm is used with du. 
+
+    b. what is the default block size used by du?
+	The default block size is 1024 bytes.
+
+    c. speculate: given the intended purpose of du, why is the usage reported in blocks, instead of bytes?
+	The purpose of du is to report how much disk space is used by each directory. This is reported using blocks instead of in bytes because that it is the way the hard disk stores files.

@@ -1,0 +1,39 @@
+Zach Hopman
+Kevin Anderson
+
+Lab 9 Program 2 output
+
+
+Malloc:
+110F010
+
+Malloc2:
+110F030
+
+Malloc3:
+110F050
+
+This main function begins at 40060D
+The two arrays are allocated at 6010A0 and 602040
+Test is at A0499A2F
+
+Local uninitilized:
+A0499A40
+
+Local uninitilized:
+A0499A3C
+
+Local uninitilized:
+A0499A38
+
+Global unintilized:
+601080
+
+Local initilized:
+A0499A44
+
+Global intilized:
+601064
+
+Pointer:
+A0499A30

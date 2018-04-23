@@ -1,0 +1,15 @@
+Zach Hopman
+Kevin Anderson
+Lab 9
+
+1.Describe the error precisely (nature of problem, location). Fix the problem and submit your corrected source code. Note: try to develop a robust solution. 
+
+The error occurs because SIZE is set to 16 and "notarealusername" is more than 16 characters. the input tries to access memory that is not allocated to it and the electric fence triggers a segmentation fault because of this.
+
+2 and 3 source code/diagram attached.
+
+4.run your sample program multiple times.  Notice that the dynamic segments appear to "hop around" or re-locate in memory, while the static segments (code, static data) do not.  What's going on, and why?
+    Hint: google "stack address obfuscation"
+
+The dynamic memory is allocated at runtime while all static memory addresses are allocated at compile time which is why they stay the same everytime the program runs. Address obfuscation occurs and randomizes the memory addresses for security purposes so a potential hacker would never know where each memory segment would start.
+

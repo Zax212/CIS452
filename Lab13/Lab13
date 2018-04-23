@@ -1,0 +1,25 @@
+Zach Hopman
+Kevin Anderson
+lab 13
+
+1.Display the source code file and examine it very closely. What exactly does Sample Program 1 do?
+	The sample program opens the entered file, locks it, and writes the comment: "//is this sample program 1?" to the file.
+
+2.What happened, and why?
+	The second program prints no way: resource temporarily unavailable this happens because the first time the program runs it locks it preventing any other access.
+
+3.Submit your modified programs (or the relevant lines of code in each). 
+	On seperate pages
+
+4.give two ways to tell that a file is actually a symbolic link to another file
+	In order to tell a file is a symbolic link and not just a regular file, The stat function can be used to tell if the filename is a link. A second way is when using ls -n the link will display an arrow to the directory it points to.
+
+5.why are the two link counts different?
+	The link counts are diferent because the soft link only contains the path to the file while the hard link represents the actual file so it contains the original link and the hard and soft links to the file.
+
+6.what are the sizes of the 3 files?  Why are the two link file sizes different?
+	The size of the original file and the hard link are both 743 while the soft link is only 8 bytes. The softlink only contains the name of the file it points to which takes up much less space than the entire file which the hard link contains.
+
+7.what happened when you tried to display the link files?  Explain, please...
+	The softlink says there is no such file or directory while the hard link still prints the file contents. This is because the soft link points to the original file which is gone and the hard link acts as a copy of the original file which is still there even though the original file was deleted.
+

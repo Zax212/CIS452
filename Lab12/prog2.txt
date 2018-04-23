@@ -1,0 +1,28 @@
+Script started on Thu 05 Apr 2018 11:06:55 AM EDT
+[?1034h[[32m~/CIS_452/Lab12][0m
+[1;36mhopmanz[1;33m-> [0m[K[1;36mhopmanz[1;33m-> [0m[K[1;36mhopmanz[1;33m-> [0m[K[1;36mhopmanz[1;33m-> [0m[K[1;36mhopmanz[1;33m-> [0m[K[1;36mhopmanz[1;33m-> [0m[K[1;36mhopmanz[1;33m-> [0m[K[1;36mhopmanz[1;33m-> [0m[K[1;36mhopmanz[1;33m-> [0m[K[1;36mhopmanz[1;33m-> [0mls -l
+total 32
+-rwx--x--x 1 hopmanz users 8792 Apr  5 11:06 [0m[01;32ma.out[0m
+-rw------- 1 hopmanz users 1213 Apr  5 10:57 Lab12
+-rw------- 1 hopmanz users 1273 Apr  5 10:50 prog1.txt
+-rw------- 1 hopmanz users    0 Apr  5 11:06 prog2.txt
+-rw------- 1 hopmanz users  444 Apr  5 10:44 program1.c
+-rw------- 1 hopmanz users  429 Apr  5 11:06 program2.c
+drwx--x--x 2 hopmanz users 4096 Apr  5 10:42 [01;34mtestDir[0m
+[[32m~/CIS_452/Lab12][0m
+[1;36mhopmanz[1;33m-> [0m./a.out
+program1.c          size is: 444
+.prog1.txt.swp      size is: 12288
+prog2.txt           size is: 0
+a.out               size is: 8792
+program2.c          size is: 429
+prog1.txt           size is: 1273
+..                  size is: 4096
+.                   size is: 4096
+Lab12               size is: 1213
+testDir             size is: 4096
+[[32m~/CIS_452/Lab12][0m
+[1;36mhopmanz[1;33m-> [0men[Kxit
+exit
+
+Script done on Thu 05 Apr 2018 11:07:11 AM EDT

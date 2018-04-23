@@ -1,0 +1,51 @@
+Zach Hopman
+Kevin Anderson
+Lab 10
+
+1.please specify which EOS workstation you are working on
+	EOS 13
+
+2.use the free memory utility program to determine:
+  a.the total amount of physical memory (KB) on your system
+	16316768 kb
+  b.the current amount of free memory (KB)
+	14112068 kb
+
+3.what is your estimate of the approximate memory demand of the Sample Program?
+	16.77mb
+4.approximately how much does the amount of free (idle) memory change?
+    17.68mb
+
+5.considering your computed memory demands of the Sample Program, explain why the observed change is a predictable result.
+	This is a predictable result because the size of the integer and the size of KB is fixed in the sample program.
+
+6.Note: the computed value for dim will differ on different machines -- describe and justify your choice of parameter. You can set dim directly, or change the constant '2'. 
+	We changed the constant value of 2 to 67 which used almost all of the free memory.
+
+7.observe what happens to the amount of idle memory. Given your computations and the results from experiment 2 above, is this what you expected to see? Why / why not?
+	    Idle memory went down to below 150,000 kb which is what we expected to see.
+	
+8.Reference the man page for vmstat to understand what is exactly being displayed. What other memory field(s) change (i.e. swap device, buffers, cache)? Speculate: why might these fields have changed (i.e. explain how the system adapting to the increased memory demand)
+	The system spent most of the time (87%) idle. The interupts per second raised while the program was running. The program affected many sections of the memory.
+
+9.what is the difference between a major and a minor page fault in Linux (you might need to look this up)?
+	If the page is loaded in memory at the time the fault occurs but is not marked in the MMU as being loaded in memory then this is a minor page fault. Major page faults occur when the OS has to read from the hard disk to find a free location.    
+
+10.what is the size of a page in Linux?
+	4kB
+
+11.precisely, how does this change alter the program's memory access pattern (i.e. what objects get "touched", in what order)?
+	 This change will cause the pages to be jumped every other loop instead of every 200 loops because each page is only 4kB.   	
+	
+12.speculate: how will this change affect the program's execution time (verify your answer by executing and timing the program)?
+    This change is going to make the execution time take longer.
+	
+13.precisely, why does the change have this effect (your answer should incorporate an important concept discussed in class)?
+	After the changes, the new program will need to make more context switches which is because the pages need to switched much more frequently.	
+
+14.describe and justify your computation
+
+15.observe vmstat system statistics as the program executes.  Describe what fields have changed (including non-memory fields), and how they have changed?
+    
+16.describe what has happened and why (i.e. explain how the operating system is adapting to the increased memory demands of the Sample Program).  Include a brief discussion of the execution time and number of page faults incurred.  Your explanation should demonstrate that you understand what is happening from a virtual memory viewpoint.
+

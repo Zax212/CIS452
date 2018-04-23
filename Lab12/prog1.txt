@@ -1,0 +1,34 @@
+Script started on Thu 05 Apr 2018 10:49:47 AM EDT
+[?1034h[[32m~/CIS_452/Lab12][0m
+[1;36mhopmanz[1;33m-> [0mstate pro[K[K[K[K[K program1.c
+  File: ‘program1.c’
+  Size: 444       	Blocks: 8          IO Block: 1048576 regular file
+Device: 26h/38d	Inode: 22291576    Links: 1
+Access: (0600/-rw-------)  Uid: ( 7716/ hopmanz)   Gid: (  500/   users)
+Access: 2018-04-05 10:44:17.444537194 -0400
+Modify: 2018-04-05 10:44:17.454537256 -0400
+Change: 2018-04-05 10:44:17.455537262 -0400
+ Birth: -
+[[32m~/CIS_452/Lab12][0m
+[1;36mhopmanz[1;33m-> [0m./a.out program1.c
+value is: 33152
+Directory: 0
+[[32m~/CIS_452/Lab12][0m
+[1;36mhopmanz[1;33m-> [0mstat testDir
+  File: ‘testDir’
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: 26h/38d	Inode: 22291500    Links: 2
+Access: (0711/drwx--x--x)  Uid: ( 7716/ hopmanz)   Gid: (  500/   users)
+Access: 2018-04-05 10:42:32.228884018 -0400
+Modify: 2018-04-05 10:42:32.228884018 -0400
+Change: 2018-04-05 10:45:28.305977187 -0400
+ Birth: -
+[[32m~/CIS_452/Lab12][0m
+[1;36mhopmanz[1;33m-> [0m./a.out testDir
+value is: 16841
+Directory: 1
+[[32m~/CIS_452/Lab12][0m
+[1;36mhopmanz[1;33m-> [0mexit
+exit
+
+Script done on Thu 05 Apr 2018 10:50:33 AM EDT

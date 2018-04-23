@@ -1,0 +1,199 @@
+#include <stdio.h>
+#include <dirent.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <errno.h>
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <ctype.h>
+#include <pwd.h>
+#include <grp.h>
+
+void printNoOptions(struct dirent *e, struct stat s);
+void printLOption(struct dirent *e, struct stat s);
+void printNOption(struct dirent *e, struct stat s);
+void printIOption(struct dirent *e, struct stat s);
+int isFile(const char* name);
+
+int main(int argc, char *argv[])
+{
+  printf("arg count: %i\n", argc);
+  int i;
+  for(i=1;i<argc;i++)
+    {
+      printf("arg%i: %s\n",i, argv[i]);
+    }
+  int noOptions = 1;
+  int lOption = 0;
+  int nOption = 0;
+  int iOption = 0;
+  struct stat statBuf;
+  DIR *dirPtr;
+  struct dirent *entryPtr;
+  int index;
+  int c;
+  char *path;
+
+  if(argc > 1) {
+    while ((c = getopt (argc, argv, "lni")) != -1) {
+      switch (c)
+	{
+	case 'l':
+	  lOption = 1;
+	  noOptions = 0;
+	  break;
+	case 'n':
+	  nOption = 1;
+	  noOptions = 0;
+	  break;
+	case 'i':
+	  iOption = 1;
+	  noOptions = 0;
+	  break;
+	}
+    }
+
+    if(noOptions == 1) {
+      printf("1\n");
+      dirPtr = opendir(argv[argc - 1]);
+      path = argv[argc - 1];
+    } else {
+      if(argc > 2) {
+	printf("2\n");
+	if(isFile(argv[argc - 1]) == 0) {
+	  printf("3\n");
+	  dirPtr = opendir(argv[argc - 1]);
+	  path = argv[argc - 1];
+	} else {
+	  printf("4\n");
+	  //open file here
+	}
+      } else {
+	printf("5\n");
+	dirPtr = opendir(".");
+	path = ".";
+      }
+    }
+  } 
+
+  if(argc == 1) {
+    printf("6\n");
+    dirPtr = opendir(".");
+    path = ".";
+  }
+
+  if(dirPtr == NULL) {
+    printf("There was a problem\n");
+    exit(1);
+  }
+
+  while ((entryPtr = readdir(dirPtr))){
+    if((strcmp(entryPtr->d_name,".")==0 || strcmp(entryPtr->d_name,"..")==0))
+      {
+        // Do nothing
+      }
+    else {
+      char *result = malloc(strlen(path)+strlen(entryPtr->d_name)+1);
+      strcpy(result, path);
+      strcat(result, entryPtr->d_name);
+
+      // need more checking on file vs. Dir
+      if (stat(result, &statBuf) < 0) {
+	printf("Error on %s\n", entryPtr->d_name);
+	perror("stat");
+	exit(1);
+      }
+
+      if(noOptions == 1) {
+	printNoOptions(entryPtr, statBuf);
+      }
+      if(lOption == 1) {
+	printLOption(entryPtr, statBuf);
+      }
+      if(nOption == 1) {
+	printNOption(entryPtr, statBuf);
+      }
+      if(iOption == 1) {
+	printIOption(entryPtr, statBuf);
+      }        
+    }
+  }
+
+  closedir(dirPtr);
+  return 0;
+}
+
+void printNoOptions(struct dirent *entryPtr, struct stat statBuf) {
+  printf("%-20s", entryPtr->d_name);
+  printf("\n");
+}
+
+void printLOption(struct dirent *entryPtr, struct stat statBuf) {
+  char *modeval = malloc(sizeof(char) * 10 + 1);
+  mode_t perm = statBuf.st_mode;
+  switch (perm & S_IFMT) {
+  case S_IFBLK:  modeval[0] = 'b';break;
+  case S_IFCHR:  modeval[0] = 'c';break;
+  case S_IFDIR:  modeval[0] = 'd';break;
+  case S_IFIFO:  modeval[0] = 'p';break;
+  case S_IFLNK:  modeval[0] = 'l';break;
+  case S_IFREG:  modeval[0] = '-';break;
+  case S_IFSOCK: modeval[0] = 's';break;
+  default:       modeval[0] = 'u'; break;
+  }
+
+  modeval[1] = (perm & S_IRUSR) ? 'r' : '-';
+  modeval[2] = (perm & S_IWUSR) ? 'w' : '-';
+  modeval[3] = (perm & S_IXUSR) ? 'x' : '-';
+  modeval[4] = (perm & S_IRGRP) ? 'r' : '-';
+  modeval[5] = (perm & S_IWGRP) ? 'w' : '-';
+  modeval[6] = (perm & S_IXGRP) ? 'x' : '-';
+  modeval[7] = (perm & S_IROTH) ? 'r' : '-';
+  modeval[8] = (perm & S_IWOTH) ? 'w' : '-';
+  modeval[9] = (perm & S_IXOTH) ? 'x' : '-';
+  modeval[10] = '\0';
+
+  char s[1000];
+  struct tm *p = localtime(&statBuf.st_atime);
+  strftime(s, 1000, "%b %d %H:%M", p);
+
+  printf("%s %ld %s %s %lld %s %-20s", modeval, statBuf.st_nlink, getpwuid(statBuf.st_uid)->pw_name, getgrgid(statBuf.st_gid)->gr_name, (long long) statBuf.st_size, s, entryPtr->d_name);
+  printf("\n");
+  free(modeval);
+}
+
+void printNOption(struct dirent *entryPtr, struct stat statBuf) {
+  printf("%-20s", entryPtr->d_name);
+  printf(" %u", statBuf.st_uid);//user id
+  printf(" %u", statBuf.st_gid);//group id
+  printf(" %ld", statBuf.st_size);//Filesize
+  printf(" %ld", statBuf.st_atime);//Date
+  printf(" %lu", statBuf.st_ino);//inode
+  printf("\n");
+}
+
+void printIOption(struct dirent *entryPtr, struct stat statBuf) {
+  printf("%ld %-20s", (long)statBuf.st_ino, entryPtr->d_name);
+  printf("\n");
+}
+
+int isFile(const char* name)
+{
+  DIR* directory = opendir(name);
+
+  if(directory != NULL)
+    {
+      closedir(directory);
+      return 0;
+    }
+
+  if(errno == ENOTDIR)
+    {
+      return 1;
+    }
+
+  return -1;
+}

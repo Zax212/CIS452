@@ -1,0 +1,37 @@
+Zach Hopman
+Kevin Anderson
+Lab 11
+
+1.What is the total amount of Physical Memory (KB) available on your system (In use + Available)?
+	15.5gb
+
+2.based on changes to the amount of Available memory, what is the apparent footprint (i.e. the full memory demand) of Firefox?
+        Note: this activity is similar to observing process memory demand under Linux using ' vmstat' (with lower resolution)
+	300mb
+
+3.one of the measured components of Available memory on Windows is the Standby list. What memory management mechanism described in your textbook does the Windows Standby list implement?
+        Hint: reference section 8.4 of your textbook on Page Replacement concepts and algorithms
+	The standby list is comparable to a cache.
+
+4.note the changes in the reported amount of Available memory as graphed in the display. Why is the apparent memory footprint of two instances of Firefox not exactly twice the memory usage of a single instance?
+        Hint: this concept was mentioned in class and in your textbook (Chapter 7)
+	The two instances of firefox are sharing code and data which means that the second program does not need to load the same amount of code and data because it can use some of the preloaded code and data.
+
+5.what are the amounts of Total Physical Memory and Total Virtual Memory available on your system?
+        explain the relationship between these two numbers and why Total Virtual Memory is bigger.
+	Total Physical: 15.5gb
+	Total Virtual: 18.7gb
+	Virtual memory includes page file space so it is you physical memory plus the page file space combined.
+
+6.Under Virtual Memory, observe the size of the paging file
+        how does this number correspond with the values observed in question 5?
+        what is the purpose of the paging file in Windows (i.e. what Linux object has similar functionality)?
+	The paging file size is 3328MB. This value is combined with the total physical memory in order to get you total virtual memory. This is the equivalent of swap space in linux.
+
+7.how much virtual memory is File Explorer using?
+	64000kb
+
+8.based on your understanding of the concepts discussed in class, what exactly is happening to produce the changes observed in the Performance graph? Quantify your answer. 
+	The more contents in the notepad or the extra data added from bolding or italicizing text increases the required page size. writing text depends on the speed and amount of text but averged 1-10 page faults a second. Switching text to bold or italics required on average 850 page faults a second.
+
+
